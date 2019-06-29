@@ -1,0 +1,14 @@
+[package]
+authors = ["marshi"]
+name = "numpy-pyo3"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+rayon = "1.0.2"
+pyo3 = "0.7.0"
+numpy = "0.6.0"
+
+[lib]
+name = "_core"
+crate-type = ["cdylib"]
