@@ -1,2 +1,4 @@
 word-count/target
 word-count/word_count.egg-info
+numpy-pyo3/target
+numpy-pyo3/numpy_pyo3.egg-info
