@@ -1,4 +1,6 @@
 
+use ndarray::{ArrayD, ArrayViewD};
+use numpy::{IntoPyArray, PyArrayDyn};
 use pyo3::prelude::*;
 use pyo3::wrap_pyfunction;
 use rayon::prelude::*;
@@ -34,9 +36,20 @@ fn count_line(line: &str, needle: &str) -> usize {
     total
 }
 
+fn mult(x: ArrayViewD<f64>, y: ArrayViewD<f64>) -> ArrayD<f64> {
+    &x + &y
+}
+
 #[pymodule]
 fn _core(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
     m.add_wrapped(wrap_pyfunction!(count_line))?;
+
+    #[pyfn(m, "mult")]
+    fn mult_py(py: Python, x: &PyArrayDyn<f64>, y: &PyArrayDyn<f64>) -> Py<PyArrayDyn<f64>> {
+        let x = x.as_array();
+        let y = y.as_array();
+        mult(x, y).into_pyarray(py).to_owned()
+    }
 
     Ok(())
 }

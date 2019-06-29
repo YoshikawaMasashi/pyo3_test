@@ -8,6 +8,7 @@ edition = "2018"
 rayon = "1.0.2"
 pyo3 = "0.7.0"
 numpy = "0.6.0"
+ndarray = "0.12"
 
 [lib]
 name = "_core"
