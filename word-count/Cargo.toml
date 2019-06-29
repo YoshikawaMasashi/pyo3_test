@@ -6,7 +6,7 @@ edition = "2018"
 
 [dependencies]
 rayon = "1.0.2"
-pyo3 = { path = "../pyo3", features = ["extension-module"] }
+pyo3 = "0.7.0"
 
 [lib]
 name = "word_count"

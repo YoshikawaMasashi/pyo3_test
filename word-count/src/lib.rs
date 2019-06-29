@@ -8,7 +8,7 @@ use std::fs;
 use std::path::PathBuf;
 
 /// Represents a file that can be searched
-#[pyclass(module = "word_count")]
+#[pyclass]
 struct WordCounter {
     path: PathBuf,
 }
