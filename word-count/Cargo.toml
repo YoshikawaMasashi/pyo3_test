@@ -6,7 +6,7 @@ edition = "2018"
 
 [dependencies]
 rayon = "1.0.2"
-pyo3 = "0.7.0"
+pyo3 = "0.29.0"
 
 [lib]
 name = "word_count"
